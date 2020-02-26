@@ -1,4 +1,3 @@
-
 using System;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
@@ -29,7 +28,7 @@ namespace DatingApp.api.Controllers
         public async Task<IActionResult> Register(UserForRegisterDto userForRegisterDto)
         {
             // validate request
-
+        
             // Convert username to lowercase
 
             userForRegisterDto.Username = userForRegisterDto.Username.ToLower();
@@ -50,6 +49,7 @@ namespace DatingApp.api.Controllers
         [HttpPost("login")]
         public async Task<IActionResult> Login(UserForLoginDto userForLoginDto)
         {
+          
             var userFromRepo = await _repo.Login(userForLoginDto.Username.ToLower(), userForLoginDto.Password);
 
             // return error that does not give the username away
